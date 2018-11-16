@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orgname:</strong>
+  <%= @agent.orgName %>
+</p>
+
+<p>
+  <strong>Regno:</strong>
+  <%= @agent.regNo %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @agent.email %>
+</p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @agent.fName %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @agent.lName %>
+</p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @agent.locality %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @agent.city %>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @agent.pinCode %>
+</p>
+
+<%= link_to 'Edit', edit_agent_path(@agent) %> |
+<%= link_to 'Back', agents_path %>
