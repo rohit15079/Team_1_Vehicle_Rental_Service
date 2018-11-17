@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20181117160136) do
     t.string   "customer_contact"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-  en
+  end
 
   create_table "vehicles", force: :cascade do |t|
     t.string   "category"
