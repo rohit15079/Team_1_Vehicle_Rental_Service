@@ -30,7 +30,6 @@
 
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 
 <a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer; margin-right: 30%; float: right; font-size: medium"><u>SignUp</u></a>
@@ -42,7 +41,7 @@
       </div>
       <div class="container1">
 
-        <%= form_for :agent do |f| %>
+        <%= form_for(:agent, url: agents_path, method: :post)  do |f| %>
         <div class="field SignUpFields" style="display:inline-block">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
