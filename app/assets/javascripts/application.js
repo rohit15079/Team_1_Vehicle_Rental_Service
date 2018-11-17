@@ -19,7 +19,7 @@ function changePassword() {
 }
 
 $(document).ready(function(){
-   $('.destroy').on('click', function(){
+   $('.destroyVehicle').on('click', function(){
       $.ajax({
           url: '/vehicles/' + this.parentElement.id,
           type: 'DELETE',

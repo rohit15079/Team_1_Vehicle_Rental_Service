@@ -57,7 +57,7 @@
         <td><%= vehicle.isAc %></td>
         <td><%= vehicle.cost %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td class="destroy"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?', remote: true }%></td>
+        <td class="destroyVehicle"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?', remote: true }%></td>
       </tr>
     <% end %>
   </tbody>
