@@ -1,4 +1,4 @@
-<h1>Editing Agent</h1>
+
 <style>
   ul {
     list-style-type: none;
@@ -31,11 +31,11 @@
   }
 </style>
 <ul>
-  <li><a class="active" href=<%= edit_agent_url(current_agent.id) %>>Edit Agent Profile</a></li>
-  <li><a href=<%= new_booking_url %>>New Booking</a></li>
+  <li><a class="active" href=<%= edit_agent_url(current_agent.id) %>>Agency Profile</a></li>
+  <li><a href=<%= new_booking_url %>>Now Booking</a></li>
   <li><a href=<%= vehicles_path %>>Inventory Management</a></li>
 </ul>
-<%= form_for(@agent) do |f| %>
+<%= form_for(@agent, :html => {:class => 'tabBody'}) do |f| %>
   <% if @agent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
@@ -51,44 +51,44 @@
   <p id="notice"><%= notice %></p>
 
   <div class="field">
-    <%= f.label :orgName %><br>
+    <%= f.label "Organization Name" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :orgName, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :regNo %><br>
+    <%= f.label "Registeration Number" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :regNo, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label "Email" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :email, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :fName %><br>
+    <%= f.label "First Name" ,:class=>'agencyProfileFields' %>
     <%= f.text_field :fName %>
   </div>
   <div class="field">
-    <%= f.label :lName %><br>
+    <%= f.label "Last Name" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :lName %>
   </div>
   <div class="field">
-    <%= f.label :locality %><br>
+    <%= f.label "Locality" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :locality %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label "City" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :pinCode %><br>
+    <%= f.label "Pin Code" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :pinCode %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Save Details"%>
-    <input type="reset" name="Reset">
+  <div >
+    <%= f.submit "Save Details" ,:class=>'button'%>
+    <input type="Reset" name="Reset" class="button">
   </div>
 <% end %>
 
-<%= link_to "Sign out", signout_path, method: "delete" %>
+
 <!--<%#= link_to 'Show', @agent %> |-->
 <%#= link_to 'Back', agents_path %>

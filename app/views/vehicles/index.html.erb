@@ -1,4 +1,4 @@
-<h1>Listing Vehicles</h1>
+
 <style>
   ul {
     list-style-type: none;
@@ -29,12 +29,14 @@
     color: white;
     background-color: #4CAF50;
   }
+
 </style>
 <ul>
-  <li><a href=<%= edit_agent_url(current_agent.id) %>>Edit Agent Profile</a></li>
-  <li><a href=<%= new_booking_url %>>New Booking</a></li>
+  <li><a href=<%= edit_agent_url(current_agent.id) %>>Agency Profile</a></li>
+  <li><a href=<%= new_booking_url %>>Now Booking</a></li>
   <li><a class="active" href=<%= vehicles_path %>>Inventory Management</a></li>
 </ul>
+<div class ='tabBody'>
 <p id="notice"><%= notice %></p>
 <table>
   <thead>
@@ -58,11 +60,14 @@
         <td><%= vehicle.cost %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td class="destroyVehicle"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?', remote: true }%></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Vehicle', new_vehicle_path %>
+<div class="button">
+  <%= link_to 'Add New Vehicle', new_vehicle_path %>
+</div>
+</div>
