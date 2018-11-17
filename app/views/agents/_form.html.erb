@@ -43,7 +43,18 @@
     <%= f.label :pinCode %><br>
     <%= f.text_field :pinCode %>
   </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create my account"%>
   </div>
 <% end %>

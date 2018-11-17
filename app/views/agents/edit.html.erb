@@ -1,6 +1,58 @@
 <h1>Editing Agent</h1>
 
-<%= render 'form' %>
+<%= form_for(@agent) do |f| %>
+  <% if @agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
 
-<%= link_to 'Show', @agent %> |
-<%= link_to 'Back', agents_path %>
+      <ul>
+        <% @agent.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="field">
+    <%= f.label :orgName %><br>
+    <%= f.text_field :orgName %>
+  </div>
+  <div class="field">
+    <%= f.label :regNo %><br>
+    <%= f.text_field :regNo %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :fName %><br>
+    <%= f.text_field :fName %>
+  </div>
+  <div class="field">
+    <%= f.label :lName %><br>
+    <%= f.text_field :lName %>
+  </div>
+  <div class="field">
+    <%= f.label :locality %><br>
+    <%= f.text_field :locality %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :pinCode %><br>
+    <%= f.text_field :pinCode %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save Details"%>
+  </div>
+<% end %>
+
+<%= link_to "Sign out", signout_path, method: "delete" %>
+<!--<%#= link_to 'Show', @agent %> |-->
+<%#= link_to 'Back', agents_path %>

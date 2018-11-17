@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Fname:</strong>
+  <strong>Fname:  </strong>
   <%= @agent.fName %>
 </p>
 
@@ -39,6 +39,6 @@
   <strong>Pincode:</strong>
   <%= @agent.pinCode %>
 </p>
-
+<%= link_to "Sign out", signout_path, method: "delete" %>
 <%= link_to 'Edit', edit_agent_path(@agent) %> |
 <%= link_to 'Back', agents_path %>
