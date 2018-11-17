@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Team_1_Vehicle_Rental_Service@Development__Team_1_Vehicle_Rental_Service.rcov" NAME="Development: Team_1_Vehicle_Rental_Service Coverage Results" MODIFIED="1542464734637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Team_1_Vehicle_Rental_Service" />
+    <SUITE FILE_PATH="coverage/Team_1_Vehicle_Rental_Service@Development__Team_1_Vehicle_Rental_Service.rcov" NAME="Development: Team_1_Vehicle_Rental_Service Coverage Results" MODIFIED="1542465471649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Team_1_Vehicle_Rental_Service" />
     <SUITE FILE_PATH="coverage/Team_1_Vehicle_Rental_Service@Production__Team_1_Vehicle_Rental_Service.rcov" NAME="Production: Team_1_Vehicle_Rental_Service Coverage Results" MODIFIED="1542387424822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Team_1_Vehicle_Rental_Service" />
   </component>
   <component name="FUSProjectUsageTrigger">
