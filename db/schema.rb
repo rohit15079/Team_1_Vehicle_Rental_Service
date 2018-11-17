@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117092857) do
+ActiveRecord::Schema.define(version: 20181117160136) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "orgName"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20181117092857) do
   end
 
   add_index "agents", ["remember_token"], name: "index_agents_on_remember_token"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "vehicle_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "customer_name"
+    t.string   "customer_contact"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "vehicles", force: :cascade do |t|
     t.string   "category"
