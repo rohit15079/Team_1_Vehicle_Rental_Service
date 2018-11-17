@@ -42,7 +42,7 @@
       </div>
       <div class="container1">
 
-        <%= form_tag({:controller => "agents", :action => "new"}, :method => "get" ,:class => "nifty_form") do |f| %>
+        <%= form_for :agent do |f| %>
         <div class="field SignUpFields" style="display:inline-block">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
