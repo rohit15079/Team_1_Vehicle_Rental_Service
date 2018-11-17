@@ -16,7 +16,9 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @vehicles = Vehicle.all
+
     @bookings = Booking.all
+
   end
 
   # GET /bookings/1/edit
