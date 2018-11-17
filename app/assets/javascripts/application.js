@@ -42,3 +42,15 @@ function startTime() {
 function changePassword() {
     alert("Password sent to your Email ID");
 }
+
+$(document).ready(function(){
+   $('.destroyVehicle').on('click', function(){
+      $.ajax({
+          url: '/vehicles/' + this.parentElement.id,
+          type: 'DELETE',
+          success: function(r){
+              $(this).closest('tr').fadeOut();
+          }
+      });
+   });
+});

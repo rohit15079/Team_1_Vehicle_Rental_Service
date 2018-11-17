@@ -52,14 +52,15 @@
 
   <tbody>
     <% @vehicles.each do |vehicle| %>
-      <tr>
+      <tr id='<%= vehicle.id %>'>
         <td><%= vehicle.category %></td>
         <td><%= vehicle.model %></td>
         <td><%= vehicle.manufacturer %></td>
         <td><%= vehicle.isAc %></td>
         <td><%= vehicle.cost %></td>
-        <td><span ><%= link_to 'Edit', edit_vehicle_path(vehicle) %></span></td>
-        <td><span><%= link_to 'Delete', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+        <td class="destroyVehicle"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?', remote: true }%></td>
+
       </tr>
     <% end %>
   </tbody>
