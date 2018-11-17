@@ -1,5 +1,40 @@
 <h1>Editing Agent</h1>
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+  }
 
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  li a.active {
+    color: white;
+    background-color: #4CAF50;
+  }
+</style>
+<ul>
+  <li><a class="active">Edit Agent Profile</a></li>
+  <li><a href=<%= new_booking_url %>>New Booking</a></li>
+  <li><a href=<%= vehicles_path %>>Inventory Management</a></li>
+</ul>
 <%= form_for(@agent) do |f| %>
   <% if @agent.errors.any? %>
     <div id="error_explanation">
