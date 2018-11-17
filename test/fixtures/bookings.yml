@@ -2,14 +2,14 @@
 
 one:
   vehicle_id: 1
-  start_date: 2018-11-17 18:54:23
-  end_date: 2018-11-17 18:54:23
+  start_date: 2018-11-17
+  end_date: 2018-11-17
   customer_name: MyString
-  customer_contact: 
+  customer_contact: MyString
 
 two:
   vehicle_id: 1
-  start_date: 2018-11-17 18:54:23
-  end_date: 2018-11-17 18:54:23
+  start_date: 2018-11-17
+  end_date: 2018-11-17
   customer_name: MyString
-  customer_contact: 
+  customer_contact: MyString
