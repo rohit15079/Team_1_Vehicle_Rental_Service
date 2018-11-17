@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category %>
+    <%= f.label :category ,:class=>'agencyProfileFields'%>
     <%#= f.text_field :category %>
     <%= f.select("category", "<option>4 Seater</option><option>5 Seater</option><option>7 Seater</option>".html_safe) %>
   </div>
   <div class="field">
-    <%= f.label :model %>
+    <%= f.label :model,:class=>'agencyProfileFields' %>
     <%= f.text_field :model %>
   </div>
   <div class="field">
-    <%= f.label :manufacturer %>
+    <%= f.label :manufacturer,:class=>'agencyProfileFields' %>
     <%= f.text_field :manufacturer %>
   </div>
   <div class="field">
-    <%= f.label :isAc, "Is AC:" %>
+    <%= f.label :isAc, "Is AC:",:class=>'agencyProfileFields' %>
     <%= f.check_box :isAc %>
   </div>
   <div class="field">
-    <%= f.label :cost %>
+    <%= f.label :cost ,:class=>'agencyProfileFields'%>
     <%= f.number_field :cost %>
   </div>
   <div class="actions">
-    <%= f.submit %>
-    <input type="reset" name="Reset">
+    <%= f.submit :class=>'button'%>
+    <input class="button" type="reset" name="Reset">
   </div>
 <% end %>

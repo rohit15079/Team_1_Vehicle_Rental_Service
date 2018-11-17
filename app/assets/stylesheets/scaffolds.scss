@@ -334,7 +334,18 @@ span.psw {
   padding: 16px;
 }
 
+.button a {
+  color: #fff;
 
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover {
+    color: #fff;
+    background: none;
+  }
+}
 
 
 
@@ -384,8 +395,8 @@ a {
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #a9a9a9;
+    background: none;
   }
 }
 
