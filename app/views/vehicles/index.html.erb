@@ -50,14 +50,14 @@
 
   <tbody>
     <% @vehicles.each do |vehicle| %>
-      <tr>
+      <tr id='<%= vehicle.id %>'>
         <td><%= vehicle.category %></td>
         <td><%= vehicle.model %></td>
         <td><%= vehicle.manufacturer %></td>
         <td><%= vehicle.isAc %></td>
         <td><%= vehicle.cost %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="destroy"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?', remote: true }%></td>
       </tr>
     <% end %>
   </tbody>
