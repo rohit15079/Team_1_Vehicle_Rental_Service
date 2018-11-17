@@ -36,8 +36,9 @@
   <li><a href=<%= new_booking_url %>>Now Booking</a></li>
   <li><a class="active" href=<%= vehicles_path %>>Inventory Management</a></li>
 </ul>
-
+<div class ='tabBody'>
 <p id="notice"><%= notice %></p>
 <%= render 'form' %>
 
 <%= link_to 'Show vehicle list', vehicles_path %>
+</div>

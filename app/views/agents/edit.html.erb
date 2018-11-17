@@ -35,7 +35,7 @@
   <li><a href=<%= new_booking_url %>>Now Booking</a></li>
   <li><a href=<%= vehicles_path %>>Inventory Management</a></li>
 </ul>
-<%= form_for(@agent) do |f| %>
+<%= form_for(@agent, :html => {:class => 'tabBody'}) do |f| %>
   <% if @agent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
