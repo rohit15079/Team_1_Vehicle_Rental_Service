@@ -51,41 +51,41 @@
   <p id="notice"><%= notice %></p>
 
   <div class="field">
-    <%= f.label :orgName %><br>
+    <%= f.label "Organization Name" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :orgName, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :regNo %><br>
+    <%= f.label "Registeration Number" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :regNo, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label "Email" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :email, :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :fName %><br>
+    <%= f.label "First Name" ,:class=>'agencyProfileFields' %>
     <%= f.text_field :fName %>
   </div>
   <div class="field">
-    <%= f.label :lName %><br>
+    <%= f.label "Last Name" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :lName %>
   </div>
   <div class="field">
-    <%= f.label :locality %><br>
+    <%= f.label "Locality" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :locality %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label "City" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :pinCode %><br>
+    <%= f.label "Pin Code" ,:class=>'agencyProfileFields'%>
     <%= f.text_field :pinCode %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Save Details"%>
-    <input type="reset" name="Reset">
+  <div >
+    <%= f.submit "Save Details" ,:class=>'button'%>
+    <input type="Reset" name="Reset" class="button">
   </div>
 <% end %>
 
