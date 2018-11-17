@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  model: MyString
+  manufacturer: MyString
+  isAc: false
+  cost: 1
+
+two:
+  category: MyString
+  model: MyString
+  manufacturer: MyString
+  isAc: false
+  cost: 1
