@@ -56,8 +56,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
-    friendly_id (5.2.4)
-      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -160,7 +158,6 @@ DEPENDENCIES
   bcrypt-ruby
   byebug
   coffee-rails (~> 4.1.0)
-  friendly_id (~> 5.2.0)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.9)

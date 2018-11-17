@@ -1,17 +1,152 @@
 <% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<div class="header">
+  <%= image_tag("logo.jpeg", {:style => "display:inline-block;width:10%;float:left;"}) %>
+  <h1 style="text-align: center;position: relative; top: 18px; left: -50px">RentO co.</h1>
+</div>
+<br><br>
+
 
   <div>
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <div class="container1">
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <div class="field " style="display:inline;margin-left:10%;margin-right: 20%">
+          <%= f.label :email, :class => 'LabelClass' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :required=> true %>
+        </div>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+        <div class="field" style="display:inline">
+          <%= f.label :password, :class => 'LabelClass' %>
+          <%= f.password_field :password, autocomplete: "current-password", :required=> true %>
+        </div>
+      </div>
+
+
+      <div class="actions " style="margin-left: 45%">
+        <%= f.submit "Log in", :class => 'ActionButton' %>
+      </div>
+
+
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
+
+<a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer; margin-right: 30%; float: right; font-size: medium"><u>SignUp</u></a>
+<div id="id01" class="modal">
+
+    <div class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+      <div class="container1">
+
+        <%= form_tag({:controller => "agents", :action => "new"}, :method => "get" ,:class => "nifty_form") do |f| %>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+        </div>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :fName %>
+          <%= f.text_field :fName, autofocus: true, autocomplete: "fname" , :required => true%>
+        </div>
+
+        <br>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", :required => true %>
+        </div>
+
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :lName %>
+          <%= f.text_field :lName, autofocus: true, autocomplete: "lname" , :required => true%>
+        </div>
+        <br>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+        </div>
+
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :orgName %>
+          <%= f.text_field :orgName, autofocus: true, autocomplete: "orgname" , :required => true%>
+        </div>
+        <br>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :regNo %>
+          <%= f.text_field :regNo, autofocus: true, autocomplete: "regno" , :required => true%>
+        </div>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :locality %>
+          <%= f.text_field :locality, autofocus: true, autocomplete: "locality", :required => true %>
+        </div>
+        <br>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :city %>
+          <%= f.text_field :city, autofocus: true, autocomplete: "city" , :required => true%>
+        </div>
+        <div class="field SignUpFields" style="display:inline-block">
+          <%= f.label :pinCode %>
+          <%= f.text_field :pinCode, autofocus: true, autocomplete: "pin", :required => true %>
+        </div>
+        <!--    <div class="field SignUpFields" style="display:inline-block">-->
+        <%#= f.label :Security_Question %>
+        <%#= f.text_field :Security_Question, autofocus: true, :required => true, :placeholder => "Enter your Pet Name" %>
+        <!--    </div>-->
+
+        <div class="actions" onclick="document.getElementById('id01').style.display='none'" style="display: inline-block; margin-left:25% ">
+          <%= f.submit "Back to Login", :class => 'ActionButton'  %>
+        </div>
+        <div class="actions" style="margin-left: 15%; display: inline-block">
+          <%= f.submit "Sign up", :class => 'ActionButton'  %>
+        </div>
+
+        <div class="actions" style="margin-left: 15%; display: inline-block">
+          <%= f.submit "Reset", :class => 'ActionButton', :type=>'reset'  %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+<a onclick="document.getElementById('id02').style.display='block'" style="width:auto; cursor: pointer; margin-right: 35%; float: right; font-size: medium"><u>Forgot Password?</u></a>
+<div id="id02" class="modal">
+  <form>
+
+    <div class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+      <div class="container1">
+        <h2 style="padding-left: 40%">Forgot Your Paasword</h2>
+        <br>
+        <div class="field SignUpFields" style="display:inline-block">
+          <input type="email" required="true">
+        </div>
+
+        <div class="actions" onclick="changePassword().style.display='block'" style="display: inline-block; margin-left:25% ">
+
+          <button class="ActionButton">submit</button>
+
+        </div>
+      </div>
+    </div>
+
+  </form>
+  </div>
+  <br>
+
+<div class="footer" style="margin-top: 15px; width: 100%">
+  <medium>&copy; Copyright 2018, RentO Co.</medium>
+</div>
