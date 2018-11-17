@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @booking.vehicle_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @booking.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @booking.end_date %>
+</p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @booking.customer_name %>
+</p>
+
+<p>
+  <strong>Customer contact:</strong>
+  <%= @booking.customer_contact %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_id: 1
+  start_date: 2018-11-17 18:54:23
+  end_date: 2018-11-17 18:54:23
+  customer_name: MyString
+  customer_contact: 
+
+two:
+  vehicle_id: 1
+  start_date: 2018-11-17 18:54:23
+  end_date: 2018-11-17 18:54:23
+  customer_name: MyString
+  customer_contact: 
