@@ -78,7 +78,6 @@
     </column>
     <index id="23" parent="7" name="unique_schema_migrations">
       <ColNames>version</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <column id="24" parent="8" name="type">
