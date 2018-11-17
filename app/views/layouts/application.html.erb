@@ -6,9 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<body onload="startTime()">
+<%= render 'layouts/header' %>
 <%= yield %>
+<div class="footer" style="margin-top: 15px; width: 100%">
+  <medium>&copy; Copyright 2018, RentO Co.</medium>
+</div>
 
 </body>
 </html>
