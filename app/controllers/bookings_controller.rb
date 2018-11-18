@@ -16,9 +16,10 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @vehicles = Vehicle.where("category = :cat",{cat: params[:category]})
+    @vehicles = @vehicles.where("isAc = :isAC",{isAC: params[:isAc]})
 
+    @bookings = Booking.where("end_date >= :st_date AND start_date <= :en_date", {st_date: params[:start_date], en_date: params[:end_date]})
 
-    @bookings = Booking.where("end_date >= :st_date", {st_date: params[:start_date]})
 
   end
 
@@ -33,7 +34,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to new_booking_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }

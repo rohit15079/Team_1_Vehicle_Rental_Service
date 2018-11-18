@@ -31,23 +31,27 @@
     background-color: #4CAF50;
   }
 </style>
-
+<div class="no-print">
 <ul>
   <li><a href=<%= edit_agent_url(current_agent.id) %>>Agency Profile</a></li>
   <li><a class="active" href=<%= new_booking_url %>>Now Booking</a></li>
   <li><a href=<%= vehicles_path %>>Inventory Management</a></li>
 </ul>
 <div class ='tabBody'>
+  <p id="notice" style="text-align: center"><%= notice %></p>
 
 <%= form_tag new_booking_path, :method => 'get' do %>
   <div class="field">
     <%= label_tag :category %>
     <%= select_tag "category", options_for_select([ "4 Seater", "5 Seater", "7 Seater" ], params[:category])%>
   </div>
-  <div class="field">
-    <%= label_tag :isAc %>
-    <%= check_box_tag :isAc, params[:isAc], true %>
-  </div>
+    <div class="field">
+      <%= label_tag :isAc %><br />
+      <%= label_tag :isAc, "No", :value => "0" %>
+      <%= radio_button_tag :isAc, "0" %>
+      <%= label_tag :isAc, "Yes", :value => "1" %>
+      <%= radio_button_tag :isAc, "1" %>
+    </div>
   <div class="field">
     <%= label_tag :start_date %>
     <%= date_field_tag :start_date, params[:start_date] %>
@@ -58,66 +62,7 @@
   </div>
   <%= submit_tag "Search" %>
 <%end %>
-<br>
 
-  <%#= isAc %>
-<p id="notice"><%= notice %></p>
-
-
-<table>
-  <thead>
-  <tr>
-    <th>Category</th>
-    <th>Model</th>
-    <th>Manufacturer</th>
-    <th>Is AC</th>
-    <th>Cost</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @vehicles.each do |vehicle| %>
-    <tr>
-      <td><%= vehicle.category %></td>
-      <td><%= vehicle.model %></td>
-      <td><%= vehicle.manufacturer %></td>
-      <td><%= vehicle.isAc %></td>
-      <td><%= vehicle.cost %></td>
-
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<br><br>
-
-<table>
-  <thead>
-  <tr>
-    <th>Vehicle</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Customer name</th>
-    <th>Customer contact</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @bookings.each do |booking| %>
-    <tr>
-      <td><%= booking.vehicle_id %></td>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
-      <td><%= booking.customer_name %></td>
-      <td><%= booking.customer_contact %></td>
-      <td><%= link_to 'Show', booking %></td>
-      <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-      <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
 <br><br>
 
@@ -135,8 +80,43 @@
       </ul>
     </div>
   <% end %>
+    <table>
+      <thead>
+      <tr>
+        <th>Category</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Is AC</th>
+        <th>Cost</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
 
 
+      <% @conflictFlag %>
+      <% @vehicles.each do |v| %>
+        <% @conflictFlag = 0 %>
+        <% @bookings.each do |b| %>
+          <% if b.vehicle_id==v.id %>
+            <% @conflictFlag = 1 %>
+            <% break %>
+          <% end %>
+        <% end %>
+        <%if @conflictFlag==0%>
+          <tr>
+            <td><%= v.category %></td>
+            <td><%= v.model %></td>
+            <td><%= v.manufacturer %></td>
+            <td><%= v.isAc %></td>
+            <td><%= v.cost %></td>
+            <td><%= f.radio_button :vehicle_id, v.id %></td>
+          </tr>
+        <%end %>
+      <%end%>
+      </tbody>
+    </table>
+    <%= f.hidden_field :start_date, value: params[:start_date] %>
+    <%= f.hidden_field :end_date, value: params[:end_date] %>
   <div class="field">
     <%= f.label :customer_name %>
     <%= f.text_field :customer_name %>
@@ -145,12 +125,42 @@
     <%= f.label :customer_contact %>
     <%= f.text_field :customer_contact %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" >
+    <%= f.submit :onclick=>"document.getElementById('bill').style.display='block'"%>
   </div>
 <% end %>
 
+</div>
+</div>
+<div class="print modal tabcontent" id="bill" style="padding-top: 4px;">
+  <div class="modal-content animate" id="termsToPrint" style="width: 50%;">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('bill').style.display='none'" class="close" title="Close Modal" style="right: 12px;top: -6px;">&times;</span>
+    </div>
+    <div class="bill-container" ><span style="display: inline"><h1 style="text-align: right;margin-bottom: 0px;margin-top: 0px;color: #c5c1c1;font-size: 44px;">Invoice</h1><h1 style="margin-left: 20px;margin-top:-5px;margin-bottom: 0px;font-size: 30px;">RentO Co.</h1></span>
 
-<br>
-<%= link_to 'Back', bookings_path %>
+      <br>
+      <hr>
+      <div style="margin-left: 25px;">
+        <p style=" font-size: 12px;text-align: right;margin-right: 5px;" >Date: <span style="font-size: 15px;" id="invoicedate"><b>04/11/2018</b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 14px;margin-top: 5px;">Agent Name: <span style="font-size: 17px;"><b><%= current_agent.orgName %></b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 14px;margin-top: 4px;">Agent Reg. no.: <span style="font-size: 17px;"><b><%= current_agent.regNo %></b></span></p><br>
+
+
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 15px;text-align: -webkit-center">Customer Name: <span style="font-size: 15px;"><b>Lakshya Bansal</b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 0px;">Contact: <span style="font-size: 15px;"><b>9479580279</b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 0px;">Locality: <span style="font-size: 15px;"><b><%= current_agent.locality %></b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 0px;">City: <span style="font-size: 15px;"><b><%= current_agent.city %></b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 0px;">Pin code: <span style="font-size: 15px;"><b><%= current_agent.pinCode %></b></span></p><br>
+
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 15px;text-align: -webkit-center">Cost per day: Rs <span style="font-size: 15px;"><b>1200</b></span></p><br>
+        <p style="min-width: 15%; display: inline-block; font-size: 13px;margin-top: 8px;text-align: -webkit-center">Tentative Total: Rs <span style="font-size: 15px;"><b>4800</b></span></p><br>
+
+
+
+      </div>
+      <button class="button" onclick="window.print();return false;">Print</button>
+    </div>
+  </div>
+
 </div>

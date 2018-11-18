@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20181117160136) do
     t.string   "category"
     t.string   "model"
     t.string   "manufacturer"
-    t.boolean  "isAc"
+    t.string   "isAc"
     t.integer  "cost"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
