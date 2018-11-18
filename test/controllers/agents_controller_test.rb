@@ -1,4 +1,4 @@
-require 'test_helper'
+rt equire 'test_helper'
 
 class AgentsControllerTest < ActionController::TestCase
   setup do
