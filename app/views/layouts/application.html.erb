@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body onload="startTime()">
+<div class="no-print">
 <%= render 'layouts/header' %>
+</div>
 <%= yield %>
 <div class="footer" style="margin-top: 15px; width: 100%">
   <medium>&copy; Copyright 2018, RentO Co.</medium>
