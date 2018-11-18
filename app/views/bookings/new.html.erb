@@ -30,6 +30,7 @@
     background-color: #4CAF50;
   }
 </style>
+
 <ul>
   <li><a href=<%= edit_agent_url(current_agent.id) %>>Edit Agent Profile</a></li>
   <li><a class="active" href=<%= new_booking_url %>>New Booking</a></li>
@@ -37,7 +38,26 @@
 </ul>
 <br>
 
-<%= render 'form' %>
+<%= form_tag new_booking_path, :method => 'get' do %>
+  <div class="field">
+    <%= label_tag :category %>
+    <%= select_tag "category", options_for_select([ "4 Seater", "5 Seater", "7 Seater" ], params[:category])%>
+  </div>
+  <div class="field">
+    <%= label_tag :isAc %>
+    <%= check_box_tag :isAc, params[:isAc] %>
+  </div>
+  <div class="field">
+    <%= label_tag :start_date %>
+    <%= date_field_tag :start_date, params[:start_date] %>
+  </div>
+  <div class="field">
+    <%= label_tag :end_date %>
+    <%= date_field_tag :end_date, params[:end_date] %>
+  </div>
+  <%= submit_tag "Search" %>
+<%end %>
+<br>
 
 <p id="notice"><%= notice %></p>
 
@@ -67,6 +87,67 @@
   <% end %>
   </tbody>
 </table>
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Vehicle</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Customer name</th>
+    <th>Customer contact</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.vehicle_id %></td>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+      <td><%= booking.customer_name %></td>
+      <td><%= booking.customer_contact %></td>
+      <td><%= link_to 'Show', booking %></td>
+      <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+      <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+
+
+<%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :customer_name %>
+    <%= f.text_field :customer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_contact %>
+    <%= f.text_field :customer_contact %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <br>
 <%= link_to 'Back', bookings_path %>
