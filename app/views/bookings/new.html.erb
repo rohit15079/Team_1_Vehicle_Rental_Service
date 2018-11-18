@@ -46,7 +46,7 @@
   </div>
   <div class="field">
     <%= label_tag :isAc %>
-    <%= check_box_tag :isAc, params[:isAc] %>
+    <%= check_box_tag :isAc, params[:isAc], true %>
   </div>
   <div class="field">
     <%= label_tag :start_date %>
@@ -60,6 +60,7 @@
 <%end %>
 <br>
 
+  <%#= isAc %>
 <p id="notice"><%= notice %></p>
 
 
