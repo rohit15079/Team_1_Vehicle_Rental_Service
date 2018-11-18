@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        sleep(10)
         format.html { redirect_to new_booking_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else

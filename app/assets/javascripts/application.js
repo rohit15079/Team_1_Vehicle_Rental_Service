@@ -54,3 +54,17 @@ $(document).ready(function(){
       });
    });
 });
+
+$(document).ready(function(){
+    $('.createBooking').on('click', function(){
+        $.ajax({
+            url: '/bookings/',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType :"json",
+            success: function(r){
+            }
+        });
+        return false;
+    });
+});
