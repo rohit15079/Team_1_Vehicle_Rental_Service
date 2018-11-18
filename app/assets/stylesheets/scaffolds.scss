@@ -5,7 +5,9 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
-
+.marginRight{
+  margin-right: 15% ;
+}
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -442,7 +444,15 @@ div {
   }
 }
 
+.bookingFieldsInlineBlock{
+  display: inline-block;
+}
+
+
+
 label {
   display: block;
 }
+
+
 
