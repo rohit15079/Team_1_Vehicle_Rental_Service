@@ -15,9 +15,10 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where("category = :cat",{cat: params[:category]})
 
-    @bookings = Booking.all
+
+    @bookings = Booking.where("end_date >= :st_date", {st_date: params[:start_date]})
 
   end
 
