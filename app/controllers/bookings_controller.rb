@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   # GET /bookings.json
-  def index
+  def index                               # Will return all bookings for the booking page
     @bookings = Booking.all
   end
 
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   end
 
   # GET /bookings/new
-  def new
+  def new                                 # Will return vehicles available for booking
     @booking = Booking.new
     @vehicles = Vehicle.where("category = :cat",{cat: params[:category]})
     @vehicles = @vehicles.where("isAc = :isAC",{isAC: params[:isAc]})
@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
   # POST /bookings
   # POST /bookings.json
-  def create
+  def create                                  # To create a new booking
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
 
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
-  def update
+  def update                                      # To update existing booking
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -60,7 +60,7 @@ class BookingsController < ApplicationController
 
   # DELETE /bookings/1
   # DELETE /bookings/1.json
-  def destroy
+  def destroy                                     # To delete a booking
     @booking.destroy
     respond_to do |format|
       format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
