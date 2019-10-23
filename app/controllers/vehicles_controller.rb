@@ -3,7 +3,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles
   # GET /vehicles.json
-  def index
+  def index                                                           # WIll return all the vehicles registerd
     @vehicles = Vehicle.all
   end
 
@@ -23,7 +23,7 @@ class VehiclesController < ApplicationController
 
   # POST /vehicles
   # POST /vehicles.json
-  def create
+  def create                                                         # To add vehicle in the DB
     @vehicle = Vehicle.new(vehicle_params)
 
     respond_to do |format|
@@ -39,7 +39,7 @@ class VehiclesController < ApplicationController
 
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
-  def update
+  def update                                                          # For updating vehicle info
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to vehicles_path, notice: 'Vehicle was successfully updated.' }
