@@ -25,7 +25,7 @@ class AgentsController < ApplicationController
   # POST /agents
   # POST /agents.json=
 
-  def create
+  def create                                                  # To create a new agent account
     @agent = Agent.new(agent_params)
     if @agent.save
       sign_in @agent
@@ -38,7 +38,7 @@ class AgentsController < ApplicationController
 
   # PATCH/PUT /agents/1
   # PATCH/PUT /agents/1.json
-  def update
+  def update                                                   # To Update agent info
     respond_to do |format|
       if @agent.update(agent_params.except(:password, :password_confirmation))
         format.html { redirect_to edit_agent_path(@agent), notice: 'Agent was successfully updated.' }
@@ -52,7 +52,7 @@ class AgentsController < ApplicationController
 
   # DELETE /agents/1
   # DELETE /agents/1.json
-  def destroy
+  def destroy                                                 # To delete an agent account
     @agent.destroy
     respond_to do |format|
       format.html { redirect_to agents_url, notice: 'Agent was successfully destroyed.' }

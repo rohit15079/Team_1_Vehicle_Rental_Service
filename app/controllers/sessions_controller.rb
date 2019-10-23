@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  def new
+  def new                                                           # Will return to main booking page if already signed in
     if signed_in?
       agent = Agent.find_by(email: @current_agent.email)
       redirect_to new_booking_url
     end
   end
 
-  def create
+  def create                                                         # Will create login session for the agent/user
     agent = Agent.find_by(email: params[:session][:email].downcase)
     if agent && agent.authenticate(params[:session][:password])
       sign_in agent
