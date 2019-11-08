@@ -1,3 +1,10 @@
 == Vehical Rental System
 
 A website for vehicle rental system using Ruby on Rails.
+
+Features:
+
+* Book vehicle.
+* Print receipt.
+* Add/Delete vehicle.
+* Update Profile.
